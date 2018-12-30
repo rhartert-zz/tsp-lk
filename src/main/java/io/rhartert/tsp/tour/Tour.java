@@ -9,4 +9,6 @@ public interface Tour {
     int next(int index);
 
     int prev(int index);
+
+    int[] toArray();
 }

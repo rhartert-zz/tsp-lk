@@ -29,12 +29,22 @@ public final class ArrayTour implements Tour {
     public void flip(int a, int b) {
         int posA = positions[a];
         int posB = positions[b];
-        int left = Math.min(posA, posB);
-        int right = Math.max(posA, posB);
-        while (left < right) {
-            swap(left, right);
-            left++;
-            right--;
+
+        if (posA == posB) {
+            return;
+        }
+
+        if (posA > posB) {
+            for (int nSwaps = (tour.length + 1 - posA + posB) / 2; nSwaps > 0; nSwaps--) {
+                swap(posA++, posB--);
+                posA = posA == tour.length ? 0 : posA;
+                posB = posB < 0 ? tour.length - 1: posB;
+            }
+            return;
+        }
+
+        while (posA < posB) {
+            swap(posA++, posB--);
         }
     }
 
@@ -51,5 +61,11 @@ public final class ArrayTour implements Tour {
         tour[r] = c1;
         positions[c1] = pos2;
         positions[c2] = pos1;
+    }
+
+    public int[] toArray() {
+        int[] array = new int[tour.length];
+        System.arraycopy(tour, 0, array,0, tour.length);
+        return array;
     }
 }

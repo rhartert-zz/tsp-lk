@@ -6,8 +6,14 @@ import io.rhartert.tsp.util.Solution;
 
 public final class DummySolver extends Solver {
 
+    private final Instance instance;
+
+    public DummySolver(Instance instance) {
+        this.instance = instance;
+    }
+
     @Override
-    public Solution solve(Instance instance) {
+    public Solution solve() {
         return new Solution(instance.getCities());
     }
 }

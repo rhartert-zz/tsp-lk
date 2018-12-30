@@ -18,7 +18,7 @@ public class InstanceParser {
 
         String line;
         while ((line = input.readLine()) != null) {
-            String[] data = line.split(",");
+            String[] data = line.split("[, ]");
             int id = Integer.parseInt(data[0]);
             double x = Double.parseDouble(data[1]);
             double y = Double.parseDouble(data[2]);

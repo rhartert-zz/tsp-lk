@@ -5,5 +5,5 @@ import io.rhartert.tsp.util.Solution;
 
 public abstract class Solver {
 
-    public abstract Solution solve(Instance instance);
+    public abstract Solution solve();
 }
